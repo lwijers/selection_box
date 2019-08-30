@@ -17,18 +17,19 @@ by the box, the items should have the box_selectable = False flag
 
 import pygame
 
-class Selection_box():
+
+class Selection_box:
+
     def __init__(self):
         self.selectables = []
         self.mouse_start = ()
         self.activated = False
         self.selection_made = False
-        self.sel_rect = pygame.Rect(0,0,0,0)
+        self.sel_rect = pygame.Rect(0, 0, 0, 0)
         self.selection = []
 
         self.alpha = 100
-        self.color = (200,200,200)
-
+        self.color = (200, 200, 200)
 
     def load_selectables(self, selectables):
         self.selectables = selectables
@@ -72,6 +73,6 @@ class Selection_box():
         selector.set_alpha(self.alpha)
         selector.fill(self.color)
         selector.convert()
-        if self.activated == True:
-            pygame.draw.rect(selector, (150,150,150), pygame.Rect((0, 0), self.sel_rect.size), 2)
+        if self.activated:
+            pygame.draw.rect(selector, (150, 150, 150), pygame.Rect((0, 0), self.sel_rect.size), 2)
             screen.blit(selector, self.sel_rect)
